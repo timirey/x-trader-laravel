@@ -12,7 +12,9 @@
         "php": "^8.2",
         "laravel/framework": "^11.31",
         "laravel/sail": "^1.39",
-        "laravel/tinker": "^2.9"
+        "laravel/tinker": "^2.9",
+        "timirey/trader-php": "^1.0",
+        "timirey/xapi-php": "^6.1"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",

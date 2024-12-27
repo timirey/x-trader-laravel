@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a133828da05db591470109207447596f",
+    "content-hash": "c57008124549bf783e766ef44b7b5a17",
     "packages": [
         {
             "name": "brick/math",
@@ -5714,6 +5714,117 @@
                 "source": "https://github.com/tijsverkoyen/CssToInlineStyles/tree/v2.2.7"
             },
             "time": "2023-12-08T13:03:43+00:00"
+        },
+        {
+            "name": "timirey/trader-php",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/timirey/trader-php.git",
+                "reference": "862e8b3dd26437ab29b1c8954cbbcbc7dab406b5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/timirey/trader-php/zipball/862e8b3dd26437ab29b1c8954cbbcbc7dab406b5",
+                "reference": "862e8b3dd26437ab29b1c8954cbbcbc7dab406b5",
+                "shasum": ""
+            },
+            "require": {
+                "ext-trader": "*",
+                "php": "^8.3"
+            },
+            "require-dev": {
+                "mockery/mockery": "1.*",
+                "pestphp/pest": "2.*",
+                "phpstan/phpstan": "1.*",
+                "slevomat/coding-standard": "8.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Timirey\\Trader\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Artiom Misiru",
+                    "email": "misiru.artiom@gmail.com",
+                    "role": "Certified Web Developer"
+                }
+            ],
+            "description": "PHP wrapper for the trader extension, providing access to technical analysis indicators.",
+            "keywords": [
+                "indicators",
+                "php",
+                "trading"
+            ],
+            "support": {
+                "issues": "https://github.com/timirey/trader-php/issues",
+                "source": "https://github.com/timirey/trader-php/tree/1.0.1"
+            },
+            "time": "2024-12-20T23:30:46+00:00"
+        },
+        {
+            "name": "timirey/xapi-php",
+            "version": "6.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/timirey/xapi-php.git",
+                "reference": "4658d40691773fed093e6918ae00ecd60fcb6e89"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/timirey/xapi-php/zipball/4658d40691773fed093e6918ae00ecd60fcb6e89",
+                "reference": "4658d40691773fed093e6918ae00ecd60fcb6e89",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^8.3"
+            },
+            "require-dev": {
+                "mockery/mockery": "1.*",
+                "pestphp/pest": "2.*",
+                "phpstan/phpstan": "1.*",
+                "slevomat/coding-standard": "8.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Timirey\\XApi\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Artiom Misiru",
+                    "email": "misiru.artiom@gmail.com",
+                    "role": "Certified Web Developer"
+                }
+            ],
+            "description": "A PHP wrapper for the X-Trade Brokers (XTB) xStation5 Trading API, supporting real-time streaming and simple commands via socket connection.",
+            "keywords": [
+                "api",
+                "client",
+                "php",
+                "trading",
+                "wrapper",
+                "x-trade-brokers",
+                "xAPI",
+                "xstation",
+                "xtb"
+            ],
+            "support": {
+                "issues": "https://github.com/timirey/xapi-php/issues",
+                "source": "https://github.com/timirey/xapi-php/tree/6.1.0"
+            },
+            "time": "2024-12-27T15:30:16+00:00"
         },
         {
             "name": "vlucas/phpdotenv",
