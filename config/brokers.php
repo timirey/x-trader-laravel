@@ -45,6 +45,19 @@ return [
 
             /*
             |--------------------------------------------------------------------------
+            | Broker Service
+            |--------------------------------------------------------------------------
+            |
+            | Define the service class responsible for handling broker-specific
+            | operations. This class must implement the BrokerContract interface
+            | and contain the logic to interact with the broker's API.
+            |
+            */
+
+            'service' => \App\Services\XtbBrokerService::class,
+
+            /*
+            |--------------------------------------------------------------------------
             | Broker Credentials
             |--------------------------------------------------------------------------
             |
