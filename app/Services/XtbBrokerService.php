@@ -5,6 +5,7 @@ namespace App\Services;
 use App\Contracts\BrokerContract;
 use Timirey\XApi\Client;
 use Timirey\XApi\Enums\Host;
+use Timirey\XApi\Responses\FetchCandlesResponse;
 
 class XtbBrokerService implements BrokerContract
 {
@@ -22,5 +23,12 @@ class XtbBrokerService implements BrokerContract
         $environment = config('brokers.connections.xtb.environment');
 
         $this->client = new Client($userId, $password, Host::from($environment));
+    }
+
+    public function fetchCandles(string $symbol, callable $callback): void
+    {
+        $this->client->fetchCandles($symbol, function (FetchCandlesResponse $response) use ($callback) {
+            $callback($response);
+        });
     }
 }
