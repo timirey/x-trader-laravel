@@ -1,5 +1,6 @@
 <?php
 
 return [
-    App\Providers\AppServiceProvider::class,
+    App\Providers\BrokerServiceProvider::class,
+    App\Providers\TraderServiceProvider::class,
 ];

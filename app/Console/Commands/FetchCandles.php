@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Events\CandleReceived;
 use Illuminate\Console\Command;
 use Timirey\XApi\Enums\Period;
 use Timirey\XApi\Payloads\Data\ChartLastInfoRecord;
@@ -36,10 +37,8 @@ class FetchCandles extends Command
 
     private function subscribe(string $symbol): void
     {
-        $this->info("Subscribing to 1-minute candles for symbol: $symbol.");
-
-        broker()->client->fetchCandles($symbol, function (FetchCandlesResponse $response) {
-            $this->info("[{$response->candleStreamRecord->ctmString}] Price: {$response->candleStreamRecord->close}.");
+        broker()->client->fetchCandles($symbol, static function (FetchCandlesResponse $response) {
+            CandleReceived::dispatch($response->candleStreamRecord);
         });
     }
 }
