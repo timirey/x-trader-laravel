@@ -1,7 +1,7 @@
 <?php
 
 use App\Services\BrokerService;
-use Timirey\Trader\TraderInterface;
+use Timirey\Trader\TraderService;
 
 if (! function_exists('broker')) {
     function broker(): BrokerService
@@ -11,8 +11,8 @@ if (! function_exists('broker')) {
 }
 
 if (! function_exists('trader')) {
-    function trader(): TraderInterface
+    function trader(): TraderService
     {
-        return app(TraderInterface::class);
+        return app('trader');
     }
 }

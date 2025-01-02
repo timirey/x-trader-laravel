@@ -9,23 +9,10 @@ use Timirey\XApi\Responses\FetchCandlesResponse;
 
 class FetchCandles extends Command
 {
-    /**
-     * The name and signature of the console command.
-     *
-     * @var string
-     */
     protected $signature = 'broker:fetch-candles {symbol}';
 
-    /**
-     * The console command description.
-     *
-     * @var string
-     */
     protected $description = 'This command allows to subscribe to candle streams for a specific symbol.';
 
-    /**
-     * Execute the console command.
-     */
     public function handle(): void
     {
         $symbol = $this->argument('symbol');
@@ -34,6 +21,17 @@ class FetchCandles extends Command
         $this->subscribe($symbol);
     }
 
+    /**
+     * Subscribes to the candle stream for a given symbol.
+     *
+     * Note: To ensure a successful subscription to the candle stream,
+     * a price history request must be sent first. This initializes the
+     * necessary data context for the stream.
+     *
+     * For more details, refer to the documentation:
+     *
+     * @see https://github.com/timirey/xapi-php/blob/main/README.md#fetchcandles-getcandles
+     */
     private function prepare(string $symbol): void
     {
         $chartLastInfoRecord = new ChartLastInfoRecord(Period::PERIOD_M1, now(), $symbol);

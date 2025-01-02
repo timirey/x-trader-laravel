@@ -4,7 +4,6 @@ namespace App\Providers;
 
 use App\Services\BrokerService;
 use Illuminate\Support\ServiceProvider;
-use Timirey\Trader\TraderInterface;
 use Timirey\Trader\TraderService;
 
 class AppServiceProvider extends ServiceProvider
@@ -13,6 +12,6 @@ class AppServiceProvider extends ServiceProvider
     {
         $this->app->singleton('broker', static fn () => new BrokerService);
 
-        $this->app->bind(TraderInterface::class, TraderService::class);
+        $this->app->bind('trader', TraderService::class);
     }
 }
