@@ -22,13 +22,8 @@ class FetchCandles extends Command
     }
 
     /**
-     * Subscribes to the candle stream for a given symbol.
-     *
-     * Note: To ensure a successful subscription to the candle stream,
-     * a price history request must be sent first. This initializes the
-     * necessary data context for the stream.
-     *
-     * For more details, refer to the documentation:
+     * To ensure a successful subscription to the candle stream, a price history request must be sent first.
+     * This initializes the necessary data context for the stream.
      *
      * @see https://github.com/timirey/xapi-php/blob/main/README.md#fetchcandles-getcandles
      */
