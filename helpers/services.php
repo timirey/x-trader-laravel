@@ -1,12 +1,12 @@
 <?php
 
-use App\Contracts\BrokerContract;
+use App\Services\BrokerService;
 use Timirey\Trader\TraderInterface;
 
 if (! function_exists('broker')) {
-    function broker(): BrokerContract
+    function broker(): BrokerService
     {
-        return app(BrokerContract::class);
+        return app('broker');
     }
 }
 

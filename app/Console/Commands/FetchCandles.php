@@ -3,6 +3,8 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
+use Timirey\XApi\Enums\Period;
+use Timirey\XApi\Payloads\Data\ChartLastInfoRecord;
 use Timirey\XApi\Responses\FetchCandlesResponse;
 
 class FetchCandles extends Command
@@ -28,9 +30,22 @@ class FetchCandles extends Command
     {
         $symbol = $this->argument('symbol');
 
+        $this->prepare($symbol);
+        $this->subscribe($symbol);
+    }
+
+    private function prepare(string $symbol): void
+    {
+        $chartLastInfoRecord = new ChartLastInfoRecord(Period::PERIOD_M1, now(), $symbol);
+
+        broker()->client->getChartLastRequest($chartLastInfoRecord);
+    }
+
+    private function subscribe(string $symbol): void
+    {
         $this->info("Subscribing to 1-minute candles for symbol: $symbol.");
 
-        broker()->fetchCandles($symbol, function (FetchCandlesResponse $response) {
+        broker()->client->fetchCandles($symbol, function (FetchCandlesResponse $response) {
             $this->info("[{$response->candleStreamRecord->ctmString}] Price: {$response->candleStreamRecord->close}.");
         });
     }
