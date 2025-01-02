@@ -31,7 +31,7 @@ class FetchCandles extends Command
         $this->info("Subscribing to 1-minute candles for symbol: $symbol.");
 
         broker()->fetchCandles($symbol, function (FetchCandlesResponse $response) {
-            $this->info("Price: {$response->candleStreamRecord->close}.");
+            $this->info("[{$response->candleStreamRecord->ctmString}] Price: {$response->candleStreamRecord->close}.");
         });
     }
 }
