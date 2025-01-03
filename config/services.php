@@ -35,4 +35,11 @@ return [
         ],
     ],
 
+    'xtb' => [
+        'environment' => env('BROKER_ENVIRONMENT', 'demo'),
+        'user_id' => env('BROKER_USER_ID'),
+        'password' => env('BROKER_PASSWORD'),
+        'symbol' => env('SYMBOL'),
+    ],
+
 ];
