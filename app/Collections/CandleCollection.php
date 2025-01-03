@@ -6,18 +6,18 @@ use Illuminate\Support\Collection;
 
 class CandleCollection extends Collection
 {
-    public function closes(string $key = 'close'): array
+    public function closes(): array
     {
-        return array_column($this->all(), $key);
+        return array_column($this->all(), 'close');
     }
 
-    public function highs(string $key = 'high'): array
+    public function highs(): array
     {
-        return array_column($this->all(), $key);
+        return array_column($this->all(), 'high');
     }
 
-    public function lows(string $key = 'low'): array
+    public function lows(): array
     {
-        return array_column($this->all(), $key);
+        return array_column($this->all(), 'low');
     }
 }
