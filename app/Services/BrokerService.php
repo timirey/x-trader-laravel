@@ -16,9 +16,9 @@ readonly class BrokerService
 
     private function connect(): void
     {
-        $userId = config('services.xtb.user_id');
-        $password = config('services.xtb.password');
-        $environment = config('services.xtb.environment');
+        $userId = config('broker.user_id');
+        $password = config('broker.password');
+        $environment = config('broker.environment');
 
         $this->client = new Client($userId, $password, Host::from($environment));
     }
