@@ -74,10 +74,7 @@ services:
             - '.:/var/www/html'
         networks:
             - sail
-        command:
-            - sh
-            - '-c'
-            - "php /var/www/html/artisan queue:work --sleep=0 --queue=default\n"
+        command: 'php /var/www/html/artisan queue:work'
     schedule:
         image: sail-8.3/app
         depends_on:
@@ -91,6 +88,27 @@ services:
         networks:
             - sail
         command: 'php /var/www/html/artisan schedule:work'
+    fetch-candles:
+        image: sail-8.3/app
+        depends_on:
+            - mysql
+            - redis
+            - queue
+        environment:
+            WWWUSER: '${WWWUSER:-1000}'
+            LARAVEL_SAIL: 1
+            SYMBOL: '${SYMBOL}'
+        volumes:
+            - '.:/var/www/html'
+        networks:
+            - sail
+        command: 'php /var/www/html/artisan broker:fetch-candles ${SYMBOL}'
+        restart: on-failure
+        deploy:
+            restart_policy:
+                condition: on-failure
+                max_attempts: 5
+
 networks:
     sail:
         driver: bridge
